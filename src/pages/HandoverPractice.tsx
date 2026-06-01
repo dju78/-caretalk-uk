@@ -86,7 +86,7 @@ export default function HandoverPractice() {
     setAiFeedback('')
     setError('')
     try {
-      const res = await fetch('http://localhost:3001/api/handover', {
+      const res = await fetch('/api/handover', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ scenario: selected.context, userHandover: userInput }),

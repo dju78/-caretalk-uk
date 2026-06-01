@@ -31,7 +31,7 @@ export default function CareNoteRewriter() {
 
     if (aiMode) {
       try {
-        const res = await fetch('http://localhost:3001/api/rewrite', {
+        const res = await fetch('/api/rewrite', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ note: input }),

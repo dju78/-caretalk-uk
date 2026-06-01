@@ -103,7 +103,7 @@ export default function InterviewPractice() {
     setAiFeedback('')
     setError('')
     try {
-      const res = await fetch('http://localhost:3001/api/interview', {
+      const res = await fetch('/api/interview', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ question: selected.question, userAnswer }),
