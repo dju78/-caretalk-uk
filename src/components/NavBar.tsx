@@ -21,9 +21,18 @@ export default function NavBar({ currentPage, onNavigate }: Props) {
       <div className="max-w-3xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-2">
         <button
           onClick={() => onNavigate('landing')}
-          className="text-white font-bold text-lg tracking-tight hover:text-blue-200 transition-colors"
+          className="flex items-center gap-2 hover:opacity-90 transition-opacity"
         >
-          CareTalk UK
+          <img
+            src="/ddl-logo.png"
+            alt="DDL"
+            className="h-7 w-auto"
+            onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+          />
+          <div className="text-left">
+            <span className="text-white font-bold text-base leading-none block">CareTalk UK</span>
+            <span className="text-blue-300 text-xs leading-none">by Daramola Digital Labs</span>
+          </div>
         </button>
         <div className="flex flex-wrap gap-1">
           {navItems.map(({ label, page }) => (

@@ -9,6 +9,7 @@ import SafeguardingLanguage from './pages/SafeguardingLanguage'
 import EmergencyCallPractice from './pages/EmergencyCallPractice'
 import PrivacyBanner from './components/PrivacyBanner'
 import NavBar from './components/NavBar'
+import Footer from './components/Footer'
 import type { Page } from './types'
 
 function App() {
@@ -16,14 +17,14 @@ function App() {
   const [bannerDismissed, setBannerDismissed] = useState(false)
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
       {!bannerDismissed && (
         <PrivacyBanner onDismiss={() => setBannerDismissed(true)} />
       )}
       {page !== 'landing' && (
         <NavBar currentPage={page} onNavigate={setPage} />
       )}
-      <main>
+      <main className="flex-1">
         {page === 'landing'      && <LandingPage onGetStarted={() => setPage('dashboard')} />}
         {page === 'dashboard'    && <Dashboard onNavigate={setPage} />}
         {page === 'care-note'    && <CareNoteRewriter />}
@@ -33,6 +34,7 @@ function App() {
         {page === 'safeguarding' && <SafeguardingLanguage />}
         {page === 'emergency'    && <EmergencyCallPractice />}
       </main>
+      {page !== 'landing' && <Footer />}
     </div>
   )
 }
