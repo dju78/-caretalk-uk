@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://caretalk-uk.vercel.app/sitemap.xml
+Sitemap: https://caretalk.omoyelejd.co.uk/sitemap.xml
