@@ -20,7 +20,7 @@ Daramola Digital Labs builds practical, data-driven digital tools that support c
 
 | Feature | Description |
 |---|---|
-| 📝 Care Note Rewriter | Rewrites informal care notes into professional UK documentation |
+| 📝 Care Note Coach | Coaching feedback to help care workers write clear, factual, CQC-aligned care notes. The app never writes or rewrites notes — it trains the carer to improve their own. |
 | 🤝 Handover Practice | Practise structured care handovers with AI feedback |
 | 📚 Care Vocabulary | Learn 14+ key UK health and social care terms |
 | 💼 Interview Practice | Prepare for HCA and Support Worker interviews |

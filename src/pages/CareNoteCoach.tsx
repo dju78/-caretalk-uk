@@ -43,7 +43,7 @@ function ScoreBar({ label, value }: { label: string; value: number }) {
   )
 }
 
-export default function CareNoteRewriter() {
+export default function CareNoteCoach() {
   const [input, setInput] = useState('')
   const [result, setResult] = useState<Coaching | null>(null)
   const [loading, setLoading] = useState(false)

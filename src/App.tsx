@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import LandingPage from './pages/LandingPage'
 import Dashboard from './pages/Dashboard'
-import CareNoteRewriter from './pages/CareNoteRewriter'
+import CareNoteCoach from './pages/CareNoteCoach'
 import HandoverPractice from './pages/HandoverPractice'
 import CareVocabulary from './pages/CareVocabulary'
 import InterviewPractice from './pages/InterviewPractice'
@@ -27,7 +27,7 @@ function App() {
       <main className="flex-1">
         {page === 'landing'      && <LandingPage onGetStarted={() => setPage('dashboard')} />}
         {page === 'dashboard'    && <Dashboard onNavigate={setPage} />}
-        {page === 'care-note'    && <CareNoteRewriter />}
+        {page === 'care-note'    && <CareNoteCoach />}
         {page === 'handover'     && <HandoverPractice />}
         {page === 'vocabulary'   && <CareVocabulary />}
         {page === 'interview'    && <InterviewPractice />}

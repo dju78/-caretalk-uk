@@ -55,7 +55,7 @@ export default function LandingPage({ onGetStarted }: Props) {
       <div className="bg-white/10 py-10 px-6">
         <div className="max-w-3xl mx-auto grid grid-cols-2 gap-4 sm:grid-cols-4">
           {[
-            { icon: '📝', label: 'Care Note Rewriter' },
+            { icon: '📝', label: 'Care Note Coach' },
             { icon: '🤝', label: 'Handover Practice' },
             { icon: '📚', label: 'UK Care Vocabulary' },
             { icon: '💼', label: 'Interview Practice' },
