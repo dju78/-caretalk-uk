@@ -68,6 +68,85 @@ export default function LandingPage({ onGetStarted }: Props) {
         </div>
       </div>
 
+      {/* Getting started */}
+      <div className="bg-white/5 px-6 py-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-white text-xl font-bold mb-6 text-center">Getting started</h2>
+          <ol className="space-y-3 mb-8">
+            {[
+              'Open the care-note training coach.',
+              'Enter a first name or initials so your practice can be tracked — no personal data about service users is ever required.',
+              'Choose a scenario from the library, or use free practice.',
+              'Write your own note across the four sections: what happened, how it happened, what you did, and whether escalation or safeguarding action was needed.',
+              'Receive coaching feedback and a reflective question on each section, then review your scores.',
+            ].map((step, i) => (
+              <li key={i} className="flex items-start gap-3">
+                <span className="bg-white text-blue-800 font-bold text-sm rounded-full h-6 w-6 flex items-center justify-center shrink-0 mt-0.5">
+                  {i + 1}
+                </span>
+                <p className="text-blue-100 text-sm leading-relaxed">{step}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="text-center">
+            <button
+              onClick={onGetStarted}
+              className="bg-white text-blue-800 font-bold px-6 py-3 rounded-xl shadow hover:bg-blue-50 transition-colors"
+            >
+              Start care-note training →
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Worked example */}
+      <div className="bg-white/10 px-6 py-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-white text-xl font-bold mb-2 text-center">How CareTalk UK coaches</h2>
+          <p className="text-blue-200 text-sm text-center mb-6">
+            It gives feedback — it does not write the note for you.
+          </p>
+          <div className="bg-white/10 rounded-xl p-5 mb-4">
+            <p className="text-blue-200 text-xs font-semibold uppercase tracking-wide mb-1">A carer writes</p>
+            <p className="text-white text-sm italic">"Mary refused food and was angry."</p>
+          </div>
+          <div className="bg-white/10 rounded-xl p-5 space-y-3">
+            <p className="text-blue-200 text-xs font-semibold uppercase tracking-wide mb-1">CareTalk UK coaches (it does not rewrite)</p>
+            {[
+              { label: '✅ Did well', text: 'You recorded that there was a change worth following up.' },
+              { label: '⚠️ Missing', text: 'Add the time, what food was offered, what the service user actually said or did, and who you informed.' },
+              { label: '🔤 Language', text: '"Angry" is a judgement — describe what you observed instead.' },
+              { label: '💭 Reflective question', text: 'Have you recorded only what you observed, without assuming how the person felt?' },
+            ].map(({ label, text }) => (
+              <div key={label}>
+                <p className="text-white text-xs font-semibold">{label}</p>
+                <p className="text-blue-100 text-sm">{text}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-blue-200 text-xs text-center mt-4">
+            The carer then improves their own note using this feedback. CareTalk UK never supplies a finished sentence to copy.
+          </p>
+        </div>
+      </div>
+
+      {/* For supervisors */}
+      <div className="bg-white/5 px-6 py-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-white text-xl font-bold mb-4 text-center">For supervisors</h2>
+          <p className="text-blue-100 text-sm leading-relaxed mb-4">
+            CareTalk UK includes a supervisor view that lets a senior carer or manager see completed practice sessions — carer name, date, scenario, difficulty and overall score — and highlights any session where safeguarding awareness scored low so it can be followed up. The supervisor view is reached from the training tool and is protected by a PIN.
+          </p>
+          {/* PIN warning callout */}
+          <div className="border border-yellow-400/60 bg-yellow-400/10 rounded-xl px-5 py-4 flex items-start gap-3">
+            <span className="text-yellow-300 text-xl shrink-0">⚠️</span>
+            <p className="text-yellow-200 text-sm leading-relaxed">
+              <strong className="text-yellow-100">Security notice:</strong> The built-in PIN is for demonstration only. It must be changed in the code before any real-world use. It is not secure production authentication.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* About DDL */}
       <div className="bg-white/5 px-6 py-8">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center gap-6">
@@ -89,8 +168,24 @@ export default function LandingPage({ onGetStarted }: Props) {
       </div>
 
       {/* Footer */}
-      <footer className="bg-blue-900 text-blue-300 text-center text-xs py-4 px-4">
-        © 2026 Daramola Digital Labs. All rights reserved. · CareTalk UK · Mock data only – no personal data stored
+      <footer className="bg-blue-900 text-blue-300 text-center text-xs py-6 px-4 space-y-2">
+        <p>© 2026 Daramola Digital Labs. All rights reserved. · CareTalk UK · Mock data only — no personal data stored</p>
+        <p className="space-x-4">
+          <a href="mailto:dju78@omoyelejd.co.uk" className="underline hover:text-white transition-colors">
+            Contact us
+          </a>
+          <span>·</span>
+          <a href="/#accessibility" className="underline hover:text-white transition-colors">
+            Accessibility
+          </a>
+          <span>·</span>
+          <a href="/#privacy" className="underline hover:text-white transition-colors">
+            Privacy
+          </a>
+        </p>
+        <p className="text-blue-400 text-xs">
+          CareTalk UK is a training coach, not a care-note writer. It is not CQC-approved and does not replace employer policy or professional supervision.
+        </p>
       </footer>
     </div>
   )
