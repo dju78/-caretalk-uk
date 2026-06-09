@@ -104,7 +104,7 @@ export default function Dashboard({ onNavigate }: Props) {
               Practise writing better care notes through guided scenarios. Learn how to observe clearly, record factually, and escalate appropriately.
             </p>
             <a
-              href="/caretalk-training.html"
+              href="/carephrase-training.html"
               className="inline-flex items-center bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg text-sm hover:bg-blue-800 transition-colors"
             >
               Start care-note training →
