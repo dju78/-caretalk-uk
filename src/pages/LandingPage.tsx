@@ -6,28 +6,30 @@ export default function LandingPage({ onGetStarted }: Props) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-800 to-blue-600 flex flex-col">
 
-      {/* Header */}
-      <header className="px-4 py-5 flex items-center justify-between max-w-3xl mx-auto w-full">
-        <div className="flex items-center gap-3">
-          <div className="bg-white rounded-xl p-1.5 shadow-md">
-            <img
-              src="/ddl-logo.png"
-              alt="Daramola Digital Labs"
-              className="h-9 w-9 object-contain"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
-            />
+      {/* Sticky header with always-visible training CTA */}
+      <header className="sticky top-0 z-40 bg-blue-800/95 backdrop-blur border-b border-white/10">
+        <div className="px-4 py-3 flex items-center justify-between gap-3 max-w-3xl mx-auto w-full">
+          <div className="flex items-center gap-3">
+            <div className="bg-white rounded-xl p-1.5 shadow-md">
+              <img
+                src="/ddl-logo.png"
+                alt="Daramola Digital Labs"
+                className="h-8 w-8 object-contain"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }}
+              />
+            </div>
+            <div>
+              <span className="text-white font-bold text-base leading-none block">CarePhrase</span>
+              <span className="text-blue-200 text-xs leading-none">by Daramola Digital Labs</span>
+            </div>
           </div>
-          <div>
-            <span className="text-white font-bold text-lg leading-none block">CarePhrase</span>
-            <span className="text-blue-200 text-xs leading-none">by Daramola Digital Labs</span>
-          </div>
+          <a
+            href="/carephrase-training.html"
+            className="bg-white text-blue-800 font-bold text-sm px-4 py-2 rounded-lg shadow hover:bg-blue-50 transition-colors whitespace-nowrap"
+          >
+            Start training →
+          </a>
         </div>
-        <button
-          onClick={onGetStarted}
-          className="text-white text-sm border border-white/50 rounded-lg px-4 py-1.5 hover:bg-white/10 transition-colors"
-        >
-          Get Started
-        </button>
       </header>
 
       {/* Hero */}
@@ -42,12 +44,20 @@ export default function LandingPage({ onGetStarted }: Props) {
         <p className="text-blue-100 text-lg max-w-md mb-8">
           CarePhrase helps Healthcare Assistants, Support Workers, and Care Assistants communicate confidently in UK care settings.
         </p>
-        <button
-          onClick={onGetStarted}
-          className="bg-white text-blue-800 font-bold px-8 py-4 rounded-xl text-lg shadow-lg hover:bg-blue-50 transition-colors"
-        >
-          Start Practising Free
-        </button>
+        <div className="flex flex-col sm:flex-row items-center gap-3">
+          <a
+            href="/carephrase-training.html"
+            className="bg-white text-blue-800 font-bold px-8 py-4 rounded-xl text-lg shadow-lg hover:bg-blue-50 transition-colors"
+          >
+            Start care-note training →
+          </a>
+          <button
+            onClick={onGetStarted}
+            className="text-white font-semibold px-6 py-4 rounded-xl border border-white/50 hover:bg-white/10 transition-colors"
+          >
+            Explore the app
+          </button>
+        </div>
         <p className="text-blue-200 text-sm mt-4">No account needed · No payment · 100% free</p>
       </div>
 
