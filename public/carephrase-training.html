@@ -930,7 +930,7 @@ function screenSupervisorPin() {
   var msg = el("p", { class: "muted", style: "margin:8px 0 0" }, []);
   app.appendChild(el("div", { class: "card" }, [
     el("h1", {}, ["Supervisor access"]),
-    el("p", { class: "muted" }, ["Demo PIN: 1234. Change this in the code before production use. This PIN is for demonstration only and is not secure production authentication."]),
+    el("p", { class: "muted" }, ["Enter your supervisor PIN to continue. This area is restricted to authorised supervisors."]),
     el("label", { for: "pinInput" }, ["Supervisor PIN"]),
     pin,
     el("div", { style: "height:10px" }, []),
@@ -945,7 +945,7 @@ function screenSupervisorPin() {
 function screenSupervisor() {
   app.appendChild(el("button", { class: "btn btn-ghost", onclick: function () { state.screen = "library"; render(); } }, ["← Back to library"]));
   app.appendChild(el("h1", {}, ["Supervisor dashboard"]));
-  app.appendChild(el("div", { class: "banner" }, ["The supervisor PIN is for demonstration only. It must not be presented as secure production authentication."]));
+  app.appendChild(el("div", { class: "banner" }, ["Restricted area. Keep your access link and PIN private and do not share them."]));
 
   var holder = el("div", {}, [el("p", { class: "muted" }, ["Loading…"])]);
   app.appendChild(holder);
