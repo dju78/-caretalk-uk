@@ -167,6 +167,18 @@ export default function LandingPage({ onGetStarted }: Props) {
         </div>
       </div>
 
+      {/* Feedback */}
+      <div className="bg-white/10 text-center px-4 py-6">
+        <a
+          href="https://forms.gle/yUZTxoFqu5x5Z3iGA"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-white text-blue-800 font-bold px-6 py-3 rounded-xl shadow hover:bg-blue-50 transition-colors"
+        >
+          📝 Share your feedback on CarePhrase
+        </a>
+      </div>
+
       {/* Footer */}
       <footer className="bg-blue-900 text-blue-300 text-center text-xs py-6 px-4 space-y-2">
         <p>© 2026 Daramola Digital Labs. All rights reserved. · CarePhrase · Mock data only — no personal data stored</p>

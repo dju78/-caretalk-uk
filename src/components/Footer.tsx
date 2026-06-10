@@ -2,6 +2,16 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-400 mt-auto">
       <div className="max-w-3xl mx-auto px-4 py-8">
+        <div className="text-center mb-6 pb-6 border-b border-slate-700">
+          <a
+            href="https://forms.gle/yUZTxoFqu5x5Z3iGA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block font-bold text-blue-400 underline hover:text-blue-300 transition-colors"
+          >
+            📝 Share your feedback on CarePhrase
+          </a>
+        </div>
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-3">
             <div className="bg-white rounded-lg p-1.5 shrink-0">
