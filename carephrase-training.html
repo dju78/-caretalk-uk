@@ -923,7 +923,7 @@ function screenProgress() {
 }
 
 /* ---------- supervisor ---------- */
-var SUPERVISOR_PIN = "1234"; // Demo PIN: 1234. Change this in the code before production use.
+var SUPERVISOR_PIN = "1950"; // Supervisor PIN — keep private.
 function screenSupervisorPin() {
   app.appendChild(el("button", { class: "btn btn-ghost", onclick: function () { state.screen = "library"; render(); } }, ["← Back to library"]));
   var pin = el("input", { type: "password", id: "pinInput", inputmode: "numeric", "aria-label": "Supervisor PIN", placeholder: "Enter PIN" }, []);
