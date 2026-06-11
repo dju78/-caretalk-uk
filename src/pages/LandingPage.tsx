@@ -144,16 +144,9 @@ export default function LandingPage({ onGetStarted }: Props) {
       <div className="bg-white/5 px-6 py-10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-white text-xl font-bold mb-4 text-center">For supervisors</h2>
-          <p className="text-blue-100 text-sm leading-relaxed mb-4">
-            CarePhrase includes a supervisor view that lets a senior carer or manager see completed practice sessions — carer name, date, scenario, difficulty and overall score — and highlights any session where safeguarding awareness scored low so it can be followed up. The supervisor view is reached from the training tool and is protected by a PIN.
+          <p className="text-blue-100 text-sm leading-relaxed">
+            CarePhrase may support optional supervisor review features for training oversight during controlled pilots. Any supervisor access should be configured securely and used only in line with the organisation's data protection, confidentiality and workplace policies.
           </p>
-          {/* PIN warning callout */}
-          <div className="border border-yellow-400/60 bg-yellow-400/10 rounded-xl px-5 py-4 flex items-start gap-3">
-            <span className="text-yellow-300 text-xl shrink-0">⚠️</span>
-            <p className="text-yellow-200 text-sm leading-relaxed">
-              <strong className="text-yellow-100">Security notice:</strong> The built-in PIN is for demonstration only. It must be changed in the code before any real-world use. It is not secure production authentication.
-            </p>
-          </div>
         </div>
       </div>
 
