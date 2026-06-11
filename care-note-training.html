@@ -171,7 +171,7 @@ footer.app-foot { border-top: 1px solid var(--border); background: var(--surface
     </div>
     <div class="head-spacer"></div>
     <button class="btn btn-soft" id="navProgress" style="display:none">My progress</button>
-    <button class="btn btn-soft" id="navSupervisor" style="display:none">Supervisor</button>
+    <span id="navSupervisorSlot"></span>
   </div>
 </header>
 
@@ -384,13 +384,14 @@ var state = {
 
 var app = document.getElementById("app");
 var navProgress = document.getElementById("navProgress");
-var navSupervisor = document.getElementById("navSupervisor");
+var navSupervisorSlot = document.getElementById("navSupervisorSlot");
+var navSupervisor = null;
 
 // Supervisor access is hidden behind a secret URL key. NOTE: this is a static
 // client-side app, so this is obscurity, not real security — the key is present
 // in the shipped code. It stops casual access; for true access control a backend
 // login is required. Reach the supervisor view with:
-//   ...carephrase-training.html?supervisor=9gBXIMYlt-bKuEtQ
+//   ...care-note-training.html?supervisor=9gBXIMYlt-bKuEtQ
 // (also accepts the key in the URL hash: #supervisor=9gBXIMYlt-bKuEtQ)
 var SUPERVISOR_KEY = "9gBXIMYlt-bKuEtQ";
 function supervisorUnlocked() {
@@ -405,7 +406,17 @@ function supervisorUnlocked() {
 }
 
 navProgress.onclick = function () { state.screen = "progress"; render(); };
-navSupervisor.onclick = function () { state.screen = "supervisorPin"; render(); };
+
+// The Supervisor button is NOT in the static HTML. It is only created — and the
+// word "Supervisor" only enters the DOM — when the secret supervisor route is
+// active. On the public training page there is no supervisor button or text.
+if (supervisorUnlocked()) {
+  navSupervisor = document.createElement("button");
+  navSupervisor.className = "btn btn-soft";
+  navSupervisor.textContent = "Supervisor";
+  navSupervisor.onclick = function () { state.screen = "supervisorPin"; render(); };
+  navSupervisorSlot.appendChild(navSupervisor);
+}
 
 /* ---------- AI call ---------- */
 // JSON output shape the widget can render (used by all pillars):
@@ -571,8 +582,11 @@ function difficultyTag(d) { return el("span", { class: "tag tag-" + d }, [d]); }
 /* ---------- screens ---------- */
 function render() {
   navProgress.style.display = (state.name && state.screen !== "name") ? "" : "none";
-  // Supervisor button only appears when the secret URL key is present.
-  navSupervisor.style.display = (state.name && state.screen !== "name" && supervisorUnlocked()) ? "" : "none";
+  // Supervisor button exists only when the secret URL key is present (created at
+  // init). Show it once the carer has entered their name.
+  if (navSupervisor) {
+    navSupervisor.style.display = (state.name && state.screen !== "name") ? "" : "none";
+  }
   // Guard the supervisor screens: without the secret key they are unreachable,
   // even if the screen is set directly.
   if ((state.screen === "supervisorPin" || state.screen === "supervisor") && !supervisorUnlocked()) {

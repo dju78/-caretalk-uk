@@ -78,6 +78,26 @@ export default function LandingPage({ onGetStarted }: Props) {
         </div>
       </div>
 
+      {/* How the training works (3 steps) */}
+      <div className="bg-white/5 px-6 py-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-white text-xl font-bold mb-6 text-center">How the training works</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {[
+              { n: '1', t: 'Choose a scenario', d: 'Pick a realistic care situation from the library.' },
+              { n: '2', t: 'Write your own note', d: 'Record what happened in your own words across four sections.' },
+              { n: '3', t: 'Receive coaching feedback', d: 'Get clear feedback and a reflective question — the app never writes the note for you.' },
+            ].map(({ n, t, d }) => (
+              <div key={n} className="bg-white/10 rounded-xl p-5 text-center">
+                <div className="bg-white text-blue-800 font-bold rounded-full h-9 w-9 flex items-center justify-center mx-auto mb-3">{n}</div>
+                <p className="text-white font-semibold text-sm mb-1">{t}</p>
+                <p className="text-blue-100 text-sm">{d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Getting started */}
       <div className="bg-white/5 px-6 py-10">
         <div className="max-w-3xl mx-auto">
@@ -144,8 +164,11 @@ export default function LandingPage({ onGetStarted }: Props) {
       <div className="bg-white/5 px-6 py-10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-white text-xl font-bold mb-4 text-center">For supervisors</h2>
-          <p className="text-blue-100 text-sm leading-relaxed">
+          <p className="text-blue-100 text-sm leading-relaxed mb-3">
             CarePhrase may support optional supervisor review features for training oversight during controlled pilots. Any supervisor access should be configured securely and used only in line with the organisation's data protection, confidentiality and workplace policies.
+          </p>
+          <p className="text-blue-100 text-sm leading-relaxed">
+            For real workplace use, supervisor access should use secure authentication, role-based access and organisation-approved data protection controls.
           </p>
         </div>
       </div>
@@ -170,25 +193,36 @@ export default function LandingPage({ onGetStarted }: Props) {
         </div>
       </div>
 
-      {/* Training disclaimer */}
+      {/* Training disclaimer + pilot status */}
       <div className="bg-white/5 px-6 py-10">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto space-y-4">
           <p className="text-blue-100 text-sm leading-relaxed">
-            <strong className="text-white">Training only:</strong> CarePhrase supports learning and reflective practice. It is not legally certified or CQC-approved and is not a replacement for employer policy, clinical judgement, safeguarding procedures or professional supervision. Staff must write their own care notes and follow employer policy, care plans, safeguarding procedures and local reporting requirements. See our <a href="/privacy.html" className="underline hover:text-white">Privacy Notice</a>.
+            <strong className="text-white">Training only:</strong> CarePhrase supports learning and reflective practice. It is informed by good care-recording practice and UK care-quality expectations, including the need for accurate, complete and timely records. It is not CQC-approved and does not replace employer policy, clinical judgement, safeguarding procedures or professional supervision. Staff must write their own care notes and follow employer policy, care plans, safeguarding procedures and local reporting requirements. See our <a href="/privacy.html" className="underline hover:text-white">Privacy Notice</a>.
           </p>
+          <div className="border border-yellow-400/40 bg-yellow-400/10 rounded-xl px-5 py-4">
+            <p className="text-yellow-100 text-sm leading-relaxed">
+              <strong>Pilot status:</strong> CarePhrase is currently a training and demonstration tool. Organisations should review security, data protection, safeguarding and local policy requirements before using it in a live workplace setting.
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Feedback */}
-      <div className="bg-white/5 text-center px-4 py-6">
-        <a
-          href="https://forms.gle/yUZTxoFqu5x5Z3iGA"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-white text-blue-800 font-bold px-6 py-3 rounded-xl shadow hover:bg-blue-50 transition-colors"
-        >
-          📝 Share your feedback on CarePhrase
-        </a>
+      {/* Help improve CarePhrase */}
+      <div className="bg-white/10 px-6 py-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-white text-xl font-bold mb-2">Help improve CarePhrase</h2>
+          <p className="text-blue-100 text-sm leading-relaxed max-w-xl mx-auto mb-5">
+            Have you tested the care-note training tool? Please share quick feedback so we can improve the training experience for care workers and supervisors.
+          </p>
+          <a
+            href="https://forms.gle/yUZTxoFqu5x5Z3iGA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-blue-800 font-bold px-6 py-3 rounded-xl shadow hover:bg-blue-50 transition-colors"
+          >
+            Share feedback
+          </a>
+        </div>
       </div>
 
       {/* Footer */}
