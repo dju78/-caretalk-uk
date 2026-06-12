@@ -6,7 +6,7 @@
 
 CarePhrase is a free, mobile-friendly web app that helps Healthcare Assistants, Support Workers, and Care Assistants in the UK improve their professional care communication skills.
 
-🌐 **Live app:** https://carephrase.omoyelejd.co.uk
+🌐 **Live app:** https://www.carephrase.com
 
 ---
 
