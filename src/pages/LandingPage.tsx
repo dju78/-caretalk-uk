@@ -1,8 +1,20 @@
+import { useState } from 'react'
+
 interface Props {
   onGetStarted: () => void
 }
 
 export default function LandingPage({ onGetStarted }: Props) {
+  const [copied, setCopied] = useState(false)
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText('https://www.carephrase.com')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch { /* clipboard may be unavailable */ }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-800 to-blue-600 flex flex-col">
 
@@ -97,6 +109,51 @@ export default function LandingPage({ onGetStarted }: Props) {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Add CarePhrase to your phone */}
+      <div className="bg-white/10 px-6 py-10">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-white text-xl font-bold mb-2 text-center">Add CarePhrase to your phone</h2>
+          <p className="text-blue-100 text-sm text-center mb-6">
+            You can add CarePhrase to your home screen and open it like an app. It only takes a few seconds.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* iPhone */}
+            <div className="bg-white/10 rounded-xl p-5">
+              <p className="text-white font-semibold mb-2">📱 iPhone &amp; iPad</p>
+              <ol className="text-blue-100 text-sm space-y-2 list-decimal list-inside">
+                <li><strong className="text-white">Open www.carephrase.com in Safari.</strong> This step is important — adding to the home screen only works in Safari, not inside WhatsApp, Gmail, LinkedIn, Facebook or Instagram.</li>
+                <li>Tap the <strong className="text-white">Share</strong> button (the square with an arrow ↑) at the bottom of Safari.</li>
+                <li>Choose <strong className="text-white">Add to Home Screen</strong>, then tap <strong className="text-white">Add</strong>.</li>
+              </ol>
+              <p className="text-blue-200 text-xs mt-3">
+                Opened this from another app? Copy the link and paste it into Safari:
+              </p>
+              <button
+                onClick={copyLink}
+                className="mt-2 bg-white text-blue-800 font-semibold text-sm px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors"
+              >
+                {copied ? 'Link copied ✓' : 'Copy link for Safari'}
+              </button>
+            </div>
+            {/* Android */}
+            <div className="bg-white/10 rounded-xl p-5">
+              <p className="text-white font-semibold mb-2">🤖 Android</p>
+              <ol className="text-blue-100 text-sm space-y-2 list-decimal list-inside">
+                <li><strong className="text-white">Open www.carephrase.com in Chrome.</strong></li>
+                <li>Tap the <strong className="text-white">menu</strong> (three dots) in the top right, or look for the <strong className="text-white">Install</strong> banner.</li>
+                <li>Choose <strong className="text-white">Install app</strong> or <strong className="text-white">Add to Home screen</strong>.</li>
+              </ol>
+              <p className="text-blue-200 text-xs mt-3">
+                On most Android phones an <strong className="text-white">Install</strong> button also appears automatically at the bottom of the screen.
+              </p>
+            </div>
+          </div>
+          <p className="text-blue-200 text-xs text-center mt-5">
+            CarePhrase works in your browser too — adding it to your home screen is optional and just makes it quicker to open.
+          </p>
         </div>
       </div>
 
